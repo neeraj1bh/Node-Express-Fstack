@@ -1,5 +1,5 @@
 const cuid = require("cuid");
-const db = require("./db");
+const db = require("../db");
 const { isURL } = require("validator");
 
 function urlSchema(opts = {}) {
