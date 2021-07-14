@@ -13,6 +13,15 @@ const authenticate = passport.authenticate("local");
 
 function setMiddleware(app) {
   app.use(session());
+  // https://stackoverflow.com/questions/46644366/what-is-passport-initialize-nodejs-express/46645936
+  // https://stackoverflow.com/questions/22052258/what-does-passport-session-middleware-do/28994045#28994045
+  // https://stackoverflow.com/a/22056217
+
+  // It simply authenticates the session (which is populated by express.session()). It is equivalent to:
+  // passport.authenticate('session');
+  // as can be seen in the code here:
+  // https://github.com/jaredhanson/passport/blob/42ff63c/lib/authenticator.js#L233
+
   app.use(passport.initialize());
   app.use(passport.session());
 }
@@ -24,7 +33,7 @@ function login(req, res, next) {
 function adminStrategy() {
   return new Strategy(function (username, password, callback) {
     const isAdmin = username === "admin" && password === adminPassword;
-    if (isAdmin) callback(null, { username: "admin" });
+    if (isAdmin) return callback(null, { username: "admin" });
 
     callback(null, false);
   });
