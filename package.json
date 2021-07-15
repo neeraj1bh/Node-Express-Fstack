@@ -1,18 +1,21 @@
 {
   "scripts": {
-    "start": "node 06-deployment/01/server-01.js"
+    "start": "node 06-deployment/05/server-01.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
     "csv-parser": "^3.0.0",
     "cuid": "^2.1.8",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-pino-logger": "^6.0.0",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "pino-noir": "^2.2.1",
     "validator": "^13.6.0"
   }
 }
